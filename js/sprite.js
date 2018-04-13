@@ -1,10 +1,12 @@
 var stats;
 var camera, scene, renderer,projector;
+var remain ;
 var controls ;
-
+var wed = 0 , about = 0 , ju = 0 , contact = 0 ;
 var mouseX = 0, mouseY = 0;
 
-var nbParticles = 5000;
+var nbParticles = 10302;
+var transform = nbParticles ;
 // var nbParticles = 1030;
 
 
@@ -26,7 +28,7 @@ var PI2 = Math.PI * 2;
 var count = 0;
 var CamX = 0;
 var CamY = 0;
-var CamZ = 600;
+var CamZ = 800;
 
 // SPHERE
 var sphereVertices = []; // array of vertices
@@ -76,13 +78,13 @@ var w = imagedata.width ;
         // var y = -y + imagedata.height / 2;
         // var z = 0;
        appsVertices.push(vertex) ;
-       console.log(vertex);
+       wed++ ;
         // appsVertices.push([x,y,z]);
       }
     }
   }
 }
-
+console.log(appsVertices);
 
 var appsVertices1 = [];
 var drawTheMap1 = function(imagedata1) {
@@ -105,14 +107,14 @@ var w = imagedata1.width ;
         // var y = -y + imagedata.height / 2;
         // var z = 0;
        appsVertices1.push(vertex) ;
-       console.log(vertex);
-
+       // console.log(vertex);
+        about++ ;
         // appsVertices.push([x,y,z]);
       }
     }
   }
 }
-
+console.log(appsVertices1);
 var appsVertices2 = [];
 var drawTheMap2 = function(imagedata2) {
 var h = imagedata2.height ;
@@ -134,14 +136,14 @@ var w = imagedata2.width ;
         // var y = -y + imagedata.height / 2;
         // var z = 0;
        appsVertices2.push(vertex) ;
-       console.log(vertex);
-
+       // console.log(vertex);
+       ju++ ;
         // appsVertices.push([x,y,z]);
       }
     }
   }
 }
-
+console.log(appsVertices2);
 var appsVertices3 = [];
 var drawTheMap3 = function(imagedata3) {
 var h = imagedata3.height ;
@@ -163,14 +165,14 @@ var w = imagedata3.width ;
         // var y = -y + imagedata.height / 2;
         // var z = 0;
        appsVertices3.push(vertex) ;
-       console.log(vertex);
-
+       // console.log(vertex);
+        contact++ ;
         // appsVertices.push([x,y,z]);
       }
     }
   }
 }
-
+console.log(appsVertices3);
 
 // CUBE
 var cubeVertices = []; // array of vertices
@@ -279,24 +281,14 @@ setTimeout(function () {
       program: program
     });
 
-    particle = particles[ i++ ] =new THREE.Sprite( material );
-    particle.position.x = actualVertices[i].x - 400;
-    particle.position.y = actualVertices[i].y - 97;
+    particle = particles[ i ] =new THREE.Sprite( material );
+    particle.position.x = actualVertices[i].x;
+    particle.position.y = actualVertices[i].y ;
     particle.position.z = actualVertices[i].z;
     particle.scale.x = particle.scale.y =  1;
     scene.add( particle );
 
   }
-
-  for ( var i = 0; i < nbParticles / 2; i++ ) {
-
-    particle = particles[ i++ ];
-    particle.position.x = actualVertices[i].x-50+Math.random()*400;
-    particle.position.y = actualVertices[i].y-50+Math.random()*400;
-    particle.position.z = actualVertices[i].z-50+Math.random()*400;
-
-  }
-
 
   // projector
   projector = new THREE.Projector();
@@ -327,35 +319,79 @@ function onDocumentMouseDown( event ){
     case 1:
       actualVertices = appsVertices;
       switchShape = 2;
+      option = 1 ;
       break;
     case 2:
       actualVertices = appsVertices1;
       switchShape = 3;
+      option = 2 ;
       break;
     case 3:
       // actualVertices = cubeVertices;
       actualVertices=appsVertices2;
       switchShape = 4;
+      option = 3 ;
       break;
     case 4:
        actualVertices=appsVertices3;
        switchShape=1;
+       option = 4 ;
        break;
 
 
   }
 
   transIsActive = 0;
-  for ( var i = 0; i < nbParticles; i++ ) {
+switch (option) {
+  case 1:
+    transform = wed  ;
+    break;
+  case 2:
+    transform = about  ;
+    break;
+  case 3:
+    transform = ju ;
+    break;
+  case 4:
+    transform = contact ;
+    break;
+  default:
 
-    particle = particles[ i++ ];
+}
+
+
+  for ( var i = 0; i < transform-1; i++ ) {
+
+    particle = particles[ i ];
     new TWEEN.Tween( particle.position ).to( {
       x: actualVertices[i].x ,
       y: actualVertices[i].y ,
-      z: actualVertices[i].z ,
-    }, 2500 )
+      z: actualVertices[i].z
+    }, 5000 )
     .easing( TWEEN.Easing.Elastic.Out).start();
+
   }
+   // remain = transform + 1 ;
+   // if(remain < nbParticles){
+   //   console.log("remain = "+remain);
+   //   console.log("nbParticles = "+nbParticles);
+   //   console.log("what the ???????");
+   //
+   // }
+   for ( remain = transform + 1 ; remain < nbParticles - 1; remain++ ) {
+
+     particle = particles[ remain ];
+     // console.log(particle);
+     if(particle){
+     new TWEEN.Tween( particle.position ).to( {
+       x: -250 + Math.random() * 800 ,
+       y: -250 + Math.random() * 800 ,
+       z: -250 + Math.random() * 800
+     }, 5000 )
+     .easing( TWEEN.Easing.Elastic.Out).start();
+     }
+
+   }
 }
 
 
@@ -426,10 +462,10 @@ function render() {
 
   for ( var i = 0; i < nbParticles; i++ ) {
 
-    particle = particles[ i++ ];
+    particle = particles[ i ];
 
     if(particle.material.opacity >= .2) particle.material.opacity -= .01;
-    particle.scale.x = particle.scale.y = ( Math.sin( ( i+ count ) * 0.3 ) + 1 ) * 4 +( Math.sin( ( i + count ) * 0.5 ) + 1 ) ;
+    particle.scale.x = particle.scale.y = particle.scale.y = ( Math.sin( ( i+ count ) * 0.3 ) + 1 ) * 4 +( Math.sin( ( i + count ) * 0.5 ) + 1 ) ;
 
   }
 
