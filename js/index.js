@@ -218,7 +218,7 @@ function init() {
 
   var texture, imagedata;
 
-texture = THREE.ImageUtils.loadTexture( "handset.png", undefined, function ( event ) {
+texture = THREE.ImageUtils.loadTexture( "pics/handset.png", undefined, function ( event ) {
 
     imagedata = getImageData( texture.image );
     console.log(texture.image);
@@ -230,7 +230,7 @@ setTimeout(function () {
   drawTheMap(imagedata)
 }, 1000);
 
-texture1 = THREE.ImageUtils.loadTexture( "brain.png", undefined, function ( event ) {
+texture1 = THREE.ImageUtils.loadTexture( "pics/brain.png", undefined, function ( event ) {
 
     imagedata1 = getImageData( texture1.image );
 
@@ -240,7 +240,7 @@ setTimeout(function () {
   drawTheMap1(imagedata1)
 }, 1000);
 
-texture2 = THREE.ImageUtils.loadTexture( "people_crowd-512.png", undefined, function ( event ) {
+texture2 = THREE.ImageUtils.loadTexture( "pics/people_crowd-512.png", undefined, function ( event ) {
 
     imagedata2 = getImageData( texture2.image );
 
@@ -250,7 +250,7 @@ setTimeout(function () {
   drawTheMap2(imagedata2)
 }, 1000);
 
-texture3 = THREE.ImageUtils.loadTexture( "untitled (1).png", undefined, function ( event ) {
+texture3 = THREE.ImageUtils.loadTexture( "pics/untitled (1).png", undefined, function ( event ) {
 
     imagedata3 = getImageData( texture3.image );
 
