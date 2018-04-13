@@ -1,4 +1,4 @@
-var container, stats;
+var stats;
 var camera, scene, renderer,projector;
 var controls ;
 
@@ -10,7 +10,8 @@ var nbParticles = 5000;
 
 var transIsActive = 0;
 
-var W = window.innerWidth;
+var canvas = document.getElementById("john");
+var W = window.innerWidth / 2;
 var H = window.innerHeight;
 
 var halfW = W / 2;
@@ -53,6 +54,7 @@ var getImageData = function(image) {
 
   return ctx.getImageData(0, 0, image.width, image.height);
 }
+
 var appsVertices = [];
 var drawTheMap = function(imagedata) {
 var h = imagedata.height ;
@@ -191,11 +193,11 @@ animate();
 
 function init() {
 
-  container = document.createElement( 'div' );
-  document.body.appendChild( container );
+
 
   // scene
   scene = new THREE.Scene();
+	scene.background = new THREE.Color(0xced1c8);
 
   // camera
   camera = new THREE.PerspectiveCamera( 45, W / H, 1, 5000 );
@@ -228,7 +230,7 @@ texture = THREE.ImageUtils.loadTexture( "pics/handset.png", undefined, function 
 setTimeout(function () {
   console.log(imagedata);
   drawTheMap(imagedata)
-}, 1000);
+}, 5000);
 
 texture1 = THREE.ImageUtils.loadTexture( "pics/brain.png", undefined, function ( event ) {
 
@@ -238,7 +240,7 @@ texture1 = THREE.ImageUtils.loadTexture( "pics/brain.png", undefined, function (
 setTimeout(function () {
 
   drawTheMap1(imagedata1)
-}, 1000);
+}, 5000);
 
 texture2 = THREE.ImageUtils.loadTexture( "pics/people_crowd-512.png", undefined, function ( event ) {
 
@@ -248,7 +250,7 @@ texture2 = THREE.ImageUtils.loadTexture( "pics/people_crowd-512.png", undefined,
 setTimeout(function () {
 
   drawTheMap2(imagedata2)
-}, 1000);
+}, 5000);
 
 texture3 = THREE.ImageUtils.loadTexture( "pics/untitled (1).png", undefined, function ( event ) {
 
@@ -258,7 +260,7 @@ texture3 = THREE.ImageUtils.loadTexture( "pics/untitled (1).png", undefined, fun
 setTimeout(function () {
 
   drawTheMap3(imagedata3)
-}, 1000);
+}, 5000);
 
 
 
@@ -274,7 +276,6 @@ setTimeout(function () {
 
     var material = new THREE.SpriteCanvasMaterial({
       color: 0x1aaf5e,
-      size:3,
       program: program
     });
 
@@ -301,15 +302,15 @@ setTimeout(function () {
   projector = new THREE.Projector();
 
   // renderer (CANVAS)
-  renderer = new THREE.CanvasRenderer({ alpha: true } );
+  renderer = new THREE.CanvasRenderer({ alpha: true, canvas: canvas } );
   renderer.setSize( W , H );
-  renderer.setClearColor( 0x121212, 0); // the default
-  container.appendChild( renderer.domElement );
+  renderer.setClearColor( 0x90968e, 0); // the default
+
 
   // events listeners
   window.addEventListener( 'mousemove', onDocumentMouseMove, false );
   window.addEventListener( 'mousedown', onDocumentMouseDown, false );
-  window.addEventListener( 'resize', onWindowResize, false );
+  // window.addEventListener( 'resize', onWindowResize, false );
 
 }
 
@@ -358,19 +359,19 @@ function onDocumentMouseDown( event ){
 }
 
 
-function onWindowResize() {
-
-  W = window.innerWidth;
-  H = window.innerHeight;
-  halfW = W / 2;
-  halfH = H / 2;
-
-  camera.aspect = W / H;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize( W , H );
-
-}
+// function onWindowResize() {
+//
+//   W = window.innerWidth;
+//   H = window.innerHeight;
+//   halfW = W / 2;
+//   halfH = H / 2;
+//
+//   camera.aspect = W / H;
+//   camera.updateProjectionMatrix();
+//
+//   renderer.setSize( W , H );
+//
+// }
 
 function onDocumentMouseMove( event ) {
 
