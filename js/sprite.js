@@ -1,11 +1,14 @@
 var stats;
-var camera, scene, renderer,projector;
+var camera_c, scene_c, renderer_c;
 var remain ;
-var controls ;
+// var controls_s ;
+
+
 var wed = 0 , about = 0 , ju = 0 , contact = 0 ;
 var mouseX = 0, mouseY = 0;
 
 var nbParticles = 10302;
+// var nbParticles = 1000;
 var transform = nbParticles ;
 // var nbParticles = 1030;
 
@@ -188,25 +191,26 @@ for ( var i = 0; i < nbParticles; i ++ ) {
   cubeVertices.push(vertex_c);
 }
 
-var actualVertices = sphereVertices; // first shape displayed
+var actualVertices = cubeVertices; // first shape displayed
 
 init();
-animate();
+animate_s();
 
 function init() {
 
 
 
-  // scene
-  scene = new THREE.Scene();
-	scene.background = new THREE.Color(0xced1c8);
+  // scene_c
+  scene_c = new THREE.Scene();
+	scene_c.background = new THREE.Color(0xced1c8);
 
-  // camera
-  camera = new THREE.PerspectiveCamera( 45, W / H, 1, 5000 );
-  scene.add(camera);
-  camera.position.set( CamX, CamY, CamZ );
-  camera.lookAt(scene.position);
-// camera.position.z = -3000 ;
+  // camera_c
+  camera_c = new THREE.PerspectiveCamera( 45, W / H, 1, 5000 );
+  // controls_s = new THREE.OrbitControls(camera_c);
+  scene_c.add(camera_c);
+  camera_c.position.set( CamX, CamY, CamZ );
+  camera_c.lookAt(scene_c.position);
+// camera_c.position.z = -3000 ;
 
 
   // var texture = THREE.ImageUtils.loadTexture("apps.png", undefined, function() {
@@ -266,7 +270,7 @@ setTimeout(function () {
 
 
 
-  // scene element
+  // scene_c element
   var program = function ( context ) {
 
     context.beginPath();
@@ -286,17 +290,17 @@ setTimeout(function () {
     particle.position.y = actualVertices[i].y ;
     particle.position.z = actualVertices[i].z;
     particle.scale.x = particle.scale.y =  1;
-    scene.add( particle );
+    scene_c.add( particle );
 
   }
 
   // projector
-  projector = new THREE.Projector();
+  // projector = new THREE.Projector();
 
-  // renderer (CANVAS)
-  renderer = new THREE.CanvasRenderer({ alpha: true, canvas: canvas } );
-  renderer.setSize( W , H );
-  renderer.setClearColor( 0x90968e, 0); // the default
+  // renderer_c (CANVAS)
+  renderer_c = new THREE.CanvasRenderer({ alpha: true, canvas: canvas } );
+  renderer_c.setSize( W , H );
+  renderer_c.setClearColor( 0x90968e, 0); // the default
 
 
   // events listeners
@@ -312,7 +316,7 @@ setTimeout(function () {
 // EVENTS
 
 function onDocumentMouseDown( event ){
-
+  console.log("hollala!!!!!");
   var vector = new THREE.Vector3(mouseX, - mouseY, 0.1 );
 
   switch(switchShape){
@@ -363,13 +367,15 @@ switch (option) {
   for ( var i = 0; i < transform-1; i++ ) {
 
     particle = particles[ i ];
+
     new TWEEN.Tween( particle.position ).to( {
       x: actualVertices[i].x ,
       y: actualVertices[i].y ,
       z: actualVertices[i].z
     }, 5000 )
-    .easing( TWEEN.Easing.Elastic.Out).start();
 
+    .easing( TWEEN.Easing.Elastic.Out).start();
+    // console.log(particle.position.x + " to " + actualVertices[i].x);
   }
    // remain = transform + 1 ;
    // if(remain < nbParticles){
@@ -402,10 +408,10 @@ switch (option) {
 //   halfW = W / 2;
 //   halfH = H / 2;
 //
-//   camera.aspect = W / H;
-//   camera.updateProjectionMatrix();
+//   camera_c.aspect = W / H;
+//   camera_c.updateProjectionMatrix();
 //
-//   renderer.setSize( W , H );
+//   renderer_c.setSize( W , H );
 //
 // }
 
@@ -416,10 +422,11 @@ function onDocumentMouseMove( event ) {
   mouseY = event.clientY - halfH;
 
   var vector = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1, 0.1 );
-  projector.unprojectVector( vector, camera );
-  var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+  // projector.unprojectVector( vector, camera_c );
+  vector.unproject(camera_c) ;
+  var raycaster = new THREE.Raycaster( camera_c.position, vector.sub( camera_c.position ).normalize() );
 
-  var intersects = raycaster.intersectObjects( scene.children );
+  var intersects = raycaster.intersectObjects( scene_c.children );
   // if ( intersects.length > 0 ) {
   //
   //   for($in = 0; $in < intersects.length; $in ++){
@@ -442,23 +449,23 @@ function onDocumentMouseMove( event ) {
 
 }
 
-function animate() {
+function animate_s() {
 
-  requestAnimationFrame( animate );
+  requestAnimationFrame( animate_s );
 
 
-  render();
+  render_s();
 
 }
 
-function render() {
+function render_s() {
 
   TWEEN.update();
 
-  camera.position.x += ( mouseX - camera.position.x ) * .005;
-  camera.position.y += ( - mouseY - camera.position.y ) * .005;
-  camera.lookAt( scene.position );
-  camera.lookAt( scene.position );
+  camera_c.position.x += ( mouseX - camera_c.position.x ) * .005;
+  camera_c.position.y += ( - mouseY - camera_c.position.y ) * .005;
+  camera_c.lookAt( scene_c.position );
+  camera_c.lookAt( scene_c.position );
 
   for ( var i = 0; i < nbParticles; i++ ) {
 
@@ -470,7 +477,8 @@ function render() {
   }
 
   count += 0.1;
+ // controls_s.update();
+  renderer_c.render( scene_c, camera_c );
 
-  renderer.render( scene, camera );
 
 }
