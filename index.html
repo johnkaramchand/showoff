@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Three particles TWEEN animation</title>
-
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
     <script type="text/javascript" src="js/CanvasRenderer.js"></script>
@@ -15,20 +17,30 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="css/main.css">
     <script src="js/OrbitControls.js"></script>
   	<script src="js/dat.gui.min.js"></script>
   	<script src="js/threex.windowresize.js"></script>
-
-    <link rel="stylesheet" href="css/main.css">
-
-
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> -->
 
 </head>
 
-<body>
-  <script id="fs_wire" type="x-shader/x-fragment">
+<body style="height:100%">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">
+    <img src="logo.jpg" alt="logo">
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">WHAT WE DO</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">JOIN US</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+  </ul>
+</nav>
+<script id="fs_wire" type="x-shader/x-fragment">
     uniform float time;
     uniform float opacity;
     uniform float width;
@@ -59,9 +71,8 @@
        // gl_FragColor = vec4(l,d,l,0.65);
      }
   </script>
-  <header></header>
 
-  <div class="story" id="story1">
+  <div class="story" id="story1" style="height:100%">
 		<canvas id="brain-canvas1" __spector_context_type="webgl"></canvas>
   </div>
 
@@ -69,49 +80,128 @@
   <div id="left">
    <canvas id="john"></canvas>
  </div>
- <div id="right">
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla nulla vitae ex porttitor, at consequat mauris elementum. Integer pharetra aliquam diam efficitur varius. Nam ut mi nec tortor volutpat rutrum. Sed sodales, nisl non hendrerit porta, odio nibh rutrum augue, quis finibus diam nisl eget dui. Suspendisse eget imperdiet arcu. In non velit eu dui cursus tristique et sed ipsum. Nullam rutrum sit amet sem volutpat tempus. Fusce euismod eget massa quis pulvinar. Sed ac enim fringilla, eleifend ex in, interdum arcu. Nullam at velit mollis, facilisis turpis vitae, rhoncus urna.
+ <div id="right" style="height:100%">
+   <section id="section1" class="container-fluid au" style="height:100%;border-radius:4px">
+   <h2> Who we are</h2>
+     <p>
+       MINDWEAVER SOLUTIONS LLP is a Bangalore based company working towards excellence in the Computers space,
+       and believe in pursuing business through innovation and technology.
+       Our team comes with several years of industry experience, and comprise of a highly motivated set of specialists
+     </p>
+</section>
+<section id="section2" class="container-fluid wwd" style="height:100%;border-radius:4px">
+<h2>What we do</h2>
+<p>zdgylsdgfyadgsifygadsfiudgfiuadsiufhduishfusdhfiudshfdasy
+  ajhcbdsjabashdvjhadshjvvjhbadhjvbsjhvbadhbvdshbvjdsbvhdbvh
+  hvbdsibvidhbvahdskbvdsivbisdvvvvvvvvvvvvvsabvhadbivasfgvygv</p>
 
-Nulla viverra blandit magna vel pretium. Maecenas dignissim, odio id pellentesque congue, augue lorem iaculis dui, ac euismod ipsum ante nec tellus. Pellentesque eget nunc lacus. Nullam consequat elit egestas lectus dignissim, eget finibus massa laoreet. Quisque sit amet augue accumsan mauris feugiat vulputate non cursus nunc. Donec sit amet dolor vestibulum, mollis orci ac, viverra libero. Curabitur eleifend tortor ut magna pretium scelerisque vel non enim. Donec convallis mi id lectus ornare auctor. Quisque auctor, mauris vitae fermentum sollicitudin, urna mi placerat felis, non rutrum ex neque a turpis. Nam porta, urna id sagittis ullamcorper, ante libero aliquam erat, non tempor velit erat vitae ligula. Mauris et lectus auctor, condimentum elit volutpat, commodo mi. Donec tempor neque et convallis ornare. Vivamus ullamcorper est eget malesuada aliquam. Nullam euismod, libero sed consequat sagittis, purus lectus dignissim enim, sed finibus mauris risus eget diam. Cras pharetra tempor est, quis consequat velit ullamcorper eget.
+</section>
+<section id="section3" class="container-fluid" style="height:100%;border-radius:4px">
+  <h2>Drop a message</h2>
+  <script>
+  function initMap() {
+    var uluru = {lat: 13.02246, lng: 77.63971};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 25,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVcyVlZIb9A0GFbeLgN-kRlhmeZmCpHPg&callback=initMap">
+  </script>
 
-Suspendisse porta aliquam arcu, sit amet mollis lacus porta a. Phasellus lacinia tempor felis non facilisis. Quisque lectus elit, vulputate ac varius sed, laoreet ut quam. Mauris vel sapien mattis, pretium orci non, pretium velit. Curabitur ut purus arcu. Nullam ultricies eleifend purus, non viverra dolor ultricies eu. In diam libero, rhoncus in porta faucibus, molestie quis metus.
+  <div class="wrapper">
+    <form method="post" action="" class="ccform">
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="material-icons">face</i></span>
+        <input class="ccformfield" type="text" placeholder="Full Name" required>
+    </div>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="material-icons">email</i></span>
+        <input class="ccformfield" type="text" placeholder="Email" required>
+    </div>
+        <div class="ccfield-prepend">
+      <span class="ccform-addon"><i class="material-icons">message</i></span>
+        <textarea class="ccformfield" name="comments" rows="4" placeholder="Message" required></textarea>
+    </div>
+    <div class="ccfield-prepend">
+        <input class="ccbtn" type="submit" value="Submit">
+    </div>
+    <div id="..map">
+        <p>You can visit us at Bengaluru office</p>
+    </div>
+    <div class="contact pull-right">
+        <a href="tel:1-847-555-5555">1-847-555-5555
+          <img src="pics/android-phone-call-icon_180148.png" alt="call-us" width="42" height="42" border="0">
+        </a>
+      </div>
 
-Pellentesque nec sapien arcu. Maecenas a semper elit. Etiam at lobortis erat. Cras ipsum magna, cursus in volutpat vel, laoreet a massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim tellus, lacinia eu dapibus sit amet, sodales quis odio. Pellentesque ornare, orci nec aliquet fermentum, nulla augue pharetra lectus, eu vestibulum dui velit sit amet nisl. Sed sollicitudin nibh at tincidunt tristique. Suspendisse interdum tortor nec urna placerat viverra eu vel nulla. Morbi consequat odio eros, elementum ornare nisi efficitur id. Aenean malesuada ante odio, lobortis faucibus orci ultricies id. Praesent et velit mauris. Duis elementum magna et metus vehicula, et maximus erat iaculis. Aliquam quis magna ante. Praesent laoreet tristique condimentum.
+    </form>
+</div>
+</section>
+<section id="section4" class="container-fluid ju" style="height:100%">
+<h1>Join the pack</h1>
 
-Fusce eleifend vel elit et mattis. Donec varius ante sed elit mattis ullamcorper. Fusce vel varius quam. In aliquet magna eget massa ornare tempor a sit amet orci. Sed ac rhoncus mauris. Vestibulum rhoncus fermentum lectus, vel imperdiet dolor dictum at. Donec convallis lacus quis dui tempor, et luctus mi fermentum. Proin cursus eu mauris a vulputate. Praesent massa ligula, blandit at accumsan et, malesuada eget eros. Aliquam erat volutpat. Nulla ut vehicula turpis. Proin iaculis mauris nec sapien tempor, a consectetur sem feugiat. Cras sollicitudin, ante sit amet fringilla aliquet, mi felis ultrices tortor, at efficitur tellus arcu nec quam. Pellentesque ullamcorper enim enim, at eleifend mauris tempus eu. Nulla sit amet neque eu tortor pulvinar ultrices.
-
-Proin molestie porttitor ex et auctor. Vestibulum tempus vehicula consequat. Mauris et quam finibus, faucibus justo sed, iaculis arcu. Nunc consectetur justo enim, vel pretium elit lobortis quis. Morbi non pulvinar neque. Nulla rutrum consequat erat, eget scelerisque arcu sollicitudin a. Fusce luctus iaculis arcu sit amet euismod.
-
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec facilisis enim. Aliquam dapibus eleifend tincidunt. Duis pretium, tortor in porta condimentum, ligula massa tincidunt ex, ac convallis massa nisi sit amet lectus. In vehicula libero non congue ultrices. Donec lobortis, sem id eleifend vehicula, neque lacus luctus dolor, sit amet maximus augue elit id purus. Nulla massa nisi, iaculis nec ante non, facilisis dapibus nunc. Nunc cursus vestibulum ultricies. Morbi tempus sapien non orci volutpat pulvinar a non turpis. Cras feugiat commodo ipsum, at gravida sapien ultricies euismod. Cras rutrum arcu id neque porta, imperdiet maximus neque pretium. Nunc blandit semper vulputate.
-
-Vivamus ac risus ac purus vestibulum porttitor nec in ligula. Nam vestibulum ut augue sit amet fermentum. Vestibulum dapibus auctor quam sit amet pretium. Vestibulum egestas ultricies lacus, nec auctor felis pretium a. Phasellus non consequat orci. Sed nunc ipsum, varius vitae erat vitae, fermentum rhoncus eros. Phasellus id tincidunt tortor, non condimentum turpis. Maecenas ex dui, semper in risus ullamcorper, volutpat pellentesque arcu.
-
-Morbi accumsan leo in commodo iaculis. Aenean dapibus risus a velit cursus blandit. Suspendisse dapibus nisl ut dui mattis, nec sollicitudin tellus molestie. Sed et risus in nunc suscipit laoreet a non nibh. Suspendisse sollicitudin risus ut justo convallis, nec cursus justo egestas. Nam iaculis euismod aliquet. Sed dolor velit, vestibulum quis arcu in, bibendum dapibus augue.
-
-Aliquam in tempus dui. Phasellus pharetra nibh quam, vel ultricies augue semper et. Cras leo quam, porttitor id eros id, venenatis condimentum felis. Phasellus in malesuada nulla, nec dignissim mauris. Donec non lacus sit amet est lacinia dapibus vel sed augue. Maecenas mattis eget tortor sit amet pretium. Curabitur consectetur consequat lorem. In hac habitasse platea dictumst. Sed at ornare tellus. Praesent arcu augue, dignissim id imperdiet sit amet, mattis eget velit.
-
-Morbi at augue et neque aliquet iaculis. Integer cursus odio vel ipsum ullamcorper, at varius mi dignissim. Curabitur semper, justo at dapibus lobortis, risus tellus elementum mi, at interdum nunc eros nec arcu. Nulla in arcu in metus elementum efficitur semper a nisl. In tempor facilisis lorem, at gravida arcu vestibulum at. Nulla et tellus at dolor semper varius sollicitudin sed nibh. Nam vitae velit sed justo finibus interdum eu venenatis est. Integer ac viverra tellus. Vestibulum at magna tincidunt erat vehicula viverra at id tellus. Sed faucibus nec risus eu dapibus. Sed tincidunt gravida lorem, eu elementum diam pulvinar eget. Curabitur in nisi eleifend, consectetur massa non, rhoncus mi. Pellentesque quis arcu at sem ultrices cursus. Suspendisse porta orci nec metus accumsan, vel sagittis neque volutpat.
-
-Suspendisse a erat quis orci semper varius. Aenean sit amet dolor tempus, gravida neque in, porta metus. Etiam tristique purus sed leo dictum, ut luctus nisl fermentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris quis massa a velit egestas suscipit in et mi. Phasellus eu justo id mi bibendum sodales sit amet eget arcu. Maecenas rutrum libero diam, vel elementum ante pretium nec. Mauris nisl massa, scelerisque ut tristique vel, dapibus id libero. Mauris id orci vitae lacus dignissim suscipit. Proin quis lacus ac lacus ultrices condimentum. Vivamus ac finibus risus, blandit vehicula tortor.
-
-Cras vehicula dapibus lectus, at convallis diam lacinia vel. Maecenas ac aliquet mauris. Aenean faucibus libero eu sem rhoncus convallis. Duis tempor odio ac libero egestas, auctor accumsan nisl suscipit. Praesent non rutrum nisi, et vulputate augue. Pellentesque et ex sem. Suspendisse bibendum felis a ligula rutrum, eget aliquam ante congue. Nunc ultricies vel urna luctus vulputate. Nullam in auctor mauris. In sagittis neque elit, id tempus velit auctor vel. Duis malesuada mi vel ipsum condimentum, at consequat justo iaculis. Etiam commodo facilisis semper. Nulla molestie finibus volutpat. Nam convallis malesuada magna.
-
-Vestibulum sagittis sapien lectus, ac sodales est aliquam eu. Nullam vel dapibus arcu. Quisque in risus luctus, lobortis ex a, pretium sapien. Quisque vel egestas ex. Mauris vel porta magna, quis malesuada ex. In lectus mauris, posuere sit amet quam luctus, laoreet pharetra odio. Duis porta ante sit amet lectus tincidunt, a tincidunt odio vulputate. Suspendisse aliquam consequat dui, quis auctor nisl varius ac. Pellentesque id elit vestibulum, lobortis justo id, rhoncus est. Sed in cursus augue, vitae aliquam metus.
-
-<p>
-
-Morbi pulvinar pharetra erat ut congue. Ut at vehicula erat, nec fermentum nulla. Pellentesque ac ultricies ex, sit amet volutpat leo. Duis in sem sagittis, feugiat massa nec, volutpat tellus. Morbi tincidunt, libero quis efficitur feugiat, tortor velit semper urna, a gravida risus enim fermentum neque. Nullam rhoncus convallis quam, eget vulputate tellus. Nunc sagittis bibendum purus eget pulvinar. Fusce rutrum ante nibh, eu sodales dolor dignissim non. Vestibulum tempor lectus in hendrerit vulputate. Ut quis faucibus augue.
-
-</p>
+</section>
  </div>
-
-
-
 
     <script src="js/brain.js"></script>
     <script src="js/sprite.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    // $('.dot-nav a').on('click', function() {
+    //
+    //    var scrollAnchor = $(this).attr('scroll-data') ;
+    //    // console.log("scrollAnchor= "+scrollAnchor);
+    //
+    //   var p = $("section[data-anchor='" + scrollAnchor +"']");
+    //   // console.log(p) ;
+    //   var offset = p.offset();
+    //   // console.log(offset) ;
+    //   var scrollPoint = offset.top ;
+    //  $('html').animate({
+    //              scrollTop: scrollPoint
+    //                }, 2000);
+    //            });
 
+
+    var h = 0  ;
+    var z = 0 ;
+    $("#right").scroll(function() {
+        var windscroll = $("#right").scrollTop();
+        // console.log(windscroll) ;
+        if (windscroll >= 50) {
+
+            $('#right section').each(function(i) {
+                if ($(this).position().top <= windscroll) {
+                    // console.log($(this)) ;
+                    // $('.dot-nav a.active').removeClass('active');
+                    // console.log(i);
+                    // $('.dot-nav a').eq(i).addClass('active');
+                    h = i ;
+                }
+
+            });
+
+            // console.log("final h = " + h);
+if(z!=h){
+  forChange(h) ;
+  // console.log("  h= "+h);
+  // console.log("hi surya!!");
+  z = h ;
+}
+// console.log(z);
+
+        }
+
+    });
+    </script>
 
 
 </body>

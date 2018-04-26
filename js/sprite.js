@@ -304,8 +304,8 @@ setTimeout(function () {
 
 
   // events listeners
-  window.addEventListener( 'mousemove', onDocumentMouseMove, false );
-  window.addEventListener( 'mousedown', onDocumentMouseDown, false );
+  // window.addEventListener( 'mousemove', onDocumentMouseMove, false );
+  // window.addEventListener( 'mousedown', onDocumentMouseDown, false );
   // window.addEventListener( 'resize', onWindowResize, false );
 
 }
@@ -315,30 +315,115 @@ setTimeout(function () {
 
 // EVENTS
 
-function onDocumentMouseDown( event ){
-  console.log("hollala!!!!!");
-  var vector = new THREE.Vector3(mouseX, - mouseY, 0.1 );
+// function onDocumentMouseDown( event ){
+//   console.log("hollala!!!!!");
+//   var vector = new THREE.Vector3(mouseX, - mouseY, 0.1 );
+//
+//   switch(switchShape){
+//     case 1:
+//       actualVertices = appsVertices;
+//       switchShape = 2;
+//       option = 1 ;
+//       break;
+//     case 2:
+//       actualVertices = appsVertices1;
+//       switchShape = 3;
+//       option = 2 ;
+//       break;
+//     case 3:
+//       // actualVertices = cubeVertices;
+//       actualVertices=appsVertices2;
+//       switchShape = 4;
+//       option = 3 ;
+//       break;
+//     case 4:
+//        actualVertices=appsVertices3;
+//        switchShape=1;
+//        option = 4 ;
+//        break;
+//
+//
+//   }
+//
+//   transIsActive = 0;
+// switch (option) {
+//   case 1:
+//     transform = wed  ;
+//     break;
+//   case 2:
+//     transform = about  ;
+//     break;
+//   case 3:
+//     transform = ju ;
+//     break;
+//   case 4:
+//     transform = contact ;
+//     break;
+//   default:
+//
+// }
+//
+//
+//   for ( var i = 0; i < transform-1; i++ ) {
+//
+//     particle = particles[ i ];
+//
+//     new TWEEN.Tween( particle.position ).to( {
+//       x: actualVertices[i].x ,
+//       y: actualVertices[i].y ,
+//       z: actualVertices[i].z
+//     }, 5000 )
+//
+//     .easing( TWEEN.Easing.Elastic.Out).start();
+//     // console.log(particle.position.x + " to " + actualVertices[i].x);
+//   }
+//    // remain = transform + 1 ;
+//    // if(remain < nbParticles){
+//    //   console.log("remain = "+remain);
+//    //   console.log("nbParticles = "+nbParticles);
+//    //   console.log("what the ???????");
+//    //
+//    // }
+//    for ( remain = transform + 1 ; remain < nbParticles - 1; remain++ ) {
+//
+//      particle = particles[ remain ];
+//      // console.log(particle);
+//      if(particle){
+//      new TWEEN.Tween( particle.position ).to( {
+//        x: -250 + Math.random() * 800 ,
+//        y: -250 + Math.random() * 800 ,
+//        z: -250 + Math.random() * 800
+//      }, 5000 )
+//      .easing( TWEEN.Easing.Elastic.Out).start();
+//      }
+//
+//    }
+// }
 
-  switch(switchShape){
+function forChange( to ){
+  console.log("hollala!!!!!");
+  // var vector = new THREE.Vector3(mouseX, - mouseY, 0.1 );
+var a = to + 1;
+  switch(a){
     case 1:
       actualVertices = appsVertices;
-      switchShape = 2;
+      // switchShape = 2;
       option = 1 ;
       break;
     case 2:
       actualVertices = appsVertices1;
-      switchShape = 3;
+      // switchShape = 3;
       option = 2 ;
       break;
     case 3:
       // actualVertices = cubeVertices;
       actualVertices=appsVertices2;
-      switchShape = 4;
+      // switchShape = 4;
       option = 3 ;
       break;
     case 4:
        actualVertices=appsVertices3;
-       switchShape=1;
+       // switchShape=1;
        option = 4 ;
        break;
 
@@ -399,6 +484,7 @@ switch (option) {
 
    }
 }
+
 
 
 // function onWindowResize() {

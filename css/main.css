@@ -1,25 +1,125 @@
-header{
-    position:fixed;
-    width:100%;
-    top:0;left:0;
-    height:25px;
-    background:gold;
-}
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
-  #left {
-    /* position: fixed;
-    top: 900px;
+
+body{
+  overflow-x: hidden;
+  font-family: 'Josefin Sans', sans-serif;
+}
+#left {
+
+    position: absolute;
     left: 0px;
-    width: 40%; */
+    width: 50%;
+    top:900px;
+    height:100%;
+    border-radius: 4px;
   }
 
-  /* .left canvas {
-    width: 100%;
-    height: auto;
-  } */
+  #left canvas {
+    height: 50%;
+
+  }
 
   #right {
-    width: 45%;
-    margin-left: 52%;
-    margin-top: 1000px;
+    position: absolute;
+    top:900px;
+    overflow-y: scroll;
+    width: 50%;
+    margin-left: 50.4%;
   }
+#right::-webkit-scrollbar{
+    display: none;
+}
+
+#section1{
+  background-color: #CBCBCB;
+  position: center;
+}
+#section2{
+  background-color: #FCDFDF;
+}
+#section3{
+  background-color: #BEA4A4;
+}
+#section4{
+  background-color: #D4D1D1;
+}
+
+p{
+  top:300px;
+  position: relative;
+  font-size: 20px;
+  font-style: normal;
+  color:#330289;
+  right:10px;
+}
+
+.navbar img{
+  width: 20px;
+  height: 30px;
+  display:block;
+  margin-right: 20px;
+}
+
+.ccform {
+   margin: 0 auto;
+   width: 800px;
+}
+.ccfield-prepend{
+	margin-bottom:8px;
+	width:100%;
+
+}
+
+.ccform-addon{
+	color:#f8ae45;
+	padding:8px;
+  border-radius: 4px;
+	background:#FFFFFF;
+}
+.ccformfield {
+	color:#000000;
+	background:#FFFFFF;
+	border:none;
+  border-radius: 4px;
+	padding:10px;
+  padding-bottom: 15px;
+	width:48%;
+	display:block;
+	font-size:14px;
+}
+
+.ccbtn{
+	display:block;
+	border-radius: 4px;
+	background:#f8ae45;
+	color:#FFFFFF;
+	padding:12px 25px;
+	cursor:pointer;
+	text-decoration:none;
+	font-weight:bold;
+}
+.ccbtn:hover{
+	background:#d8850e;
+
+}
+.credit {
+  width: 800px;
+  clear:both;
+  margin:0 auto;
+  line-height:25px;
+  padding: 25px 50px;
+  text-align: center;
+}
+.credit em{
+  margin-right:5px;
+}
+.credit a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+#map {
+  height:12.5em;
+  width: 50%;
+     }
