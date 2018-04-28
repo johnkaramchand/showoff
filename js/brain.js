@@ -147,11 +147,11 @@
 					for (var i = 0; i < e.attributes.position.count /3; i++) {
 
 						if(i%2==0){
-						var texture = new THREE.TextureLoader().load('pics/apps.png');
+						var texture = new THREE.TextureLoader().load('pics/untitled (2).png');
 
 					}
 					else{
-							var texture = new THREE.TextureLoader().load('pics/api.png');
+							var texture = new THREE.TextureLoader().load('pics/untitled (2).png');
 					}
 			      var pinkMat = new THREE.MeshBasicMaterial( {
 			        map: texture,

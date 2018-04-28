@@ -62,8 +62,8 @@ p{
 }
 
 .ccform {
-   margin: 0 auto;
-   width: 800px;
+
+   width: 50%;
 }
 .ccfield-prepend{
 	margin-bottom:8px;
@@ -84,7 +84,7 @@ p{
   border-radius: 4px;
 	padding:10px;
   padding-bottom: 15px;
-	width:48%;
+	width:100%;
 	display:block;
 	font-size:14px;
 }
@@ -121,5 +121,14 @@ p{
 }
 #map {
   height:12.5em;
-  width: 50%;
+  width: 200%;
      }
+.contact{
+  display: inline-block !important;
+}
+.email{
+  position:relative;
+  float:right;
+  display: block;
+  margin: auto;
+}

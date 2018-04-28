@@ -100,7 +100,7 @@
   <h2>Drop a message</h2>
   <script>
   function initMap() {
-    var uluru = {lat: 13.02246, lng: 77.63971};
+    var uluru = {lat: 13.0225668, lng: 77.637602};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 25,
       center: uluru
@@ -111,12 +111,22 @@
     });
   }
   </script>
-  <script async defer
+  <!-- <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVcyVlZIb9A0GFbeLgN-kRlhmeZmCpHPg&callback=initMap">
-  </script>
+  </script> -->
 
   <div class="wrapper">
+    <div class="contact">
+        <a href="tel:1-847-555-5555">1-847-555-5555
+          <img src="pics/android-phone-call-icon_180148.png" alt="call-us" width="42" height="42" border="0">
+        </a>
+        <a href="mindweaversolutions@outlook.com">mindweaversolutions@outlook.com
+          <img src="pics/email.png" alt="call-us" width="42" height="42" border="0">
+        </a>
+      </div>
+
     <form method="post" action="" class="ccform">
+
     <div class="ccfield-prepend">
         <span class="ccform-addon"><i class="material-icons">face</i></span>
         <input class="ccformfield" type="text" placeholder="Full Name" required>
@@ -132,77 +142,68 @@
     <div class="ccfield-prepend">
         <input class="ccbtn" type="submit" value="Submit">
     </div>
-    <div id="..map">
+    <div id="map">
         <p>You can visit us at Bengaluru office</p>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVcyVlZIb9A0GFbeLgN-kRlhmeZmCpHPg&callback=initMap">
+        </script>
     </div>
-    <div class="contact pull-right">
-        <a href="tel:1-847-555-5555">1-847-555-5555
-          <img src="pics/android-phone-call-icon_180148.png" alt="call-us" width="42" height="42" border="0">
-        </a>
-      </div>
+
 
     </form>
 </div>
 </section>
 <section id="section4" class="container-fluid ju" style="height:100%">
 <h1>Join the pack</h1>
-
+<div class="form-group">
+    <h2>Upload your CV here</h2>
+    <form method="post" action="" class="ccform">
+      <div class="ccfield-prepend">
+          <input class="ccformfield" type="text" placeholder="Full Name" required>
+      </div>
+      <div class="ccfield-prepend">
+          <input class="ccformfield" type="text" placeholder="Email" required>
+      </div>
+      <input type="file" name="pic" accept="file_extension">
+      <div class="ccfield-prepend">
+          <input class="ccbtn" type="submit" value="Submit">
+      </div>
+</div>
 </section>
  </div>
 
     <script src="js/brain.js"></script>
     <script src="js/sprite.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-    // $('.dot-nav a').on('click', function() {
-    //
-    //    var scrollAnchor = $(this).attr('scroll-data') ;
-    //    // console.log("scrollAnchor= "+scrollAnchor);
-    //
-    //   var p = $("section[data-anchor='" + scrollAnchor +"']");
-    //   // console.log(p) ;
-    //   var offset = p.offset();
-    //   // console.log(offset) ;
-    //   var scrollPoint = offset.top ;
-    //  $('html').animate({
-    //              scrollTop: scrollPoint
-    //                }, 2000);
-    //            });
 
-
-    var h = 0  ;
-    var z = 0 ;
-    $("#right").scroll(function() {
+     var h = 0  ;
+     var z = 0 ;
+     $("#right").scroll(function() {
         var windscroll = $("#right").scrollTop();
-        // console.log(windscroll) ;
+
         if (windscroll >= 50) {
 
             $('#right section').each(function(i) {
                 if ($(this).position().top <= windscroll) {
-                    // console.log($(this)) ;
-                    // $('.dot-nav a.active').removeClass('active');
-                    // console.log(i);
-                    // $('.dot-nav a').eq(i).addClass('active');
+
                     h = i ;
                 }
 
             });
 
-            // console.log("final h = " + h);
-if(z!=h){
-  forChange(h) ;
-  // console.log("  h= "+h);
-  // console.log("hi surya!!");
-  z = h ;
-}
-// console.log(z);
+
+        if(z!=h){
+           forChange(h) ;
+
+           z = h ;
+         }
+
 
         }
 
     });
     </script>
-
 
 </body>
 
