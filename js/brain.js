@@ -147,11 +147,11 @@
 					for (var i = 0; i < e.attributes.position.count /3; i++) {
 
 						if(i%2==0){
-						var texture = new THREE.TextureLoader().load('pics/apps.png');
+						var texture = new THREE.TextureLoader().load('pics/api.png');
 
 					}
 					else{
-							var texture = new THREE.TextureLoader().load('pics/api.png');
+							var texture = new THREE.TextureLoader().load('pics/apps.png');
 					}
 			      var pinkMat = new THREE.MeshBasicMaterial( {
 			        map: texture,
@@ -259,7 +259,7 @@
 
 					scene.add(brain);
 
-					brain.scale.set(0.025, 0.025, 0.025);
+					brain.scale.set(0.022, 0.022, 0.022);
 
 				});
 
@@ -276,12 +276,6 @@
 				var brain_ = $("#brain-canvas1").get()[0];
 				$(".story1").on({
 					mouseenter: function(e) {
-						// // console.log(e) ;
-						// controls.enabled = true;
-						//
-						// // geometry.attributes.position.set(vertices*100) ;
-						// //
-						// // geometry.needsUpdate = true ;
 
 					},
 					mousemove: function(e) {
