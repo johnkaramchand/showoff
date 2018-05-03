@@ -346,7 +346,7 @@
     }
     time += 0.1;
 
-    var winResize	= new THREEx.WindowResize(renderer, camera) ;
+    // var winResize	= new THREEx.WindowResize(renderer, camera) ;
     renderer.render(scene, camera);
 
 }
